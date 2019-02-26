@@ -11,19 +11,19 @@ namespace BanlAccountClient
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello!!");
+            Console.WriteLine("Hello my friend!!");
             Console.WriteLine("Please enter your email address:");
             var emailAddress = Console.ReadLine();
 
             Console.WriteLine("Please enter your password:");
             var password = Console.ReadLine();
 
-            var payload = new {
+            var postPayload = new {
                 EmailAddress = emailAddress,
                 Password = password
             };
 
-            var selectedAccount = SendPostCommand(payload).Result;
+            var selectedAccount = SendPostCommand(postPayload).Result;
             var accountId = int.Parse(JToken.Parse(selectedAccount)["id"].ToString());
             Console.WriteLine(selectedAccount);
             Console.WriteLine(accountId);
